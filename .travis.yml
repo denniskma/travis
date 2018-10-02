@@ -9,11 +9,16 @@ sudo:
 services:
   docker 
 
+addons:
+  apt:
+    packages:
+      - docker-ce
+
 before_install:
-  - docker -v
+  - docker --version
 
 install:
-  - docker-compose up -d
+  - docker-compose --version
 
 script:
   # Run your tests here.
