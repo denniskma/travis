@@ -19,6 +19,7 @@ before_install:
 
 install:
   - docker-compose --version
+  - docker-compose up -d
 
 script:
   # Run your tests here.
