@@ -1,13 +1,24 @@
 # .travis.yml
  
-language: php
+language:
+  php
  
-sudo: false
+sudo:
+  required
  
-php:
-  - 7.0
-  - 7.1
- 
+services:
+  docker 
+
+before_install:
+  - docker -v
+
+install:
+  - docker-compose up -d
+
 script:
   # Run your tests here.
   - echo 'Tested'
+  - docker ps
+
+after_success:
+  - echo 'Got to the end!'
