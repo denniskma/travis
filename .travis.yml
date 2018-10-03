@@ -11,14 +11,16 @@ services:
 
 before_install:
   - docker --version
+  - sudo /etc/init.d/mysql stop
 
 install:
   - docker-compose --version
   - docker-compose up -d
 
+#need to fix this
 before_script:
-  - sudo /etc/init.d/mysql stop
   
+
 script:
   # Run your tests here.
   - echo 'Tested'
