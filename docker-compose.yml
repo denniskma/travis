@@ -19,7 +19,7 @@ services:
   wp:
     depends_on:
       - db
-    build: .
+    image: thirstypanda/staging-build
     ports:
       - 80:80
       - 443:443
