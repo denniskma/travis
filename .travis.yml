@@ -5,26 +5,32 @@ language:
  
 sudo:
   required
+
+dist:
+  trusty
  
 services:
   docker 
 
 before_install:
   - docker --version
+  - docker-compose --version
   - sudo /etc/init.d/mysql stop
 
-install:
-  - docker-compose --version
-  - docker-compose up -d
-
-#need to fix this
-before_script:
-  
-
-script:
-  # Run your tests here.
-  - echo 'Tested'
-  - docker ps
+jobs:
+  include:
+    - stage: launch docker
+      script:
+        - docker-compose up -d
+        - docker ps
+    - stage: build docker image
+      script:
+        - echo 'Building image'
+        - docker build -t staging-build
+        - docker images
+    - stage: test docker image
+      script:
+        - echo 'test scripts here'
 
 after_success:
   - echo 'Got to the end!'
