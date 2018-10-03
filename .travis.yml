@@ -10,7 +10,7 @@ services:
   docker 
 
 before_install:
-  - './.travis/main.sh'
+  - './.travis/update.sh'
   - sudo /etc/init.d/mysql stop
 
 script:
