@@ -10,9 +10,9 @@ services:
   docker 
 
 before_install:
-  - chmod +x .travis/update.sh
-  - './.travis/update.sh'
-  - sudo /etc/init.d/mysql stop
+  # - chmod +x .travis/update.sh
+  # - './.travis/update.sh'
+  # - sudo /etc/init.d/mysql stop
 
 script:
   # Run your tests here.
