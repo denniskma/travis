@@ -1,0 +1,3 @@
+# all db files
+db/*
+vendor/*

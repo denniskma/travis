@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  db:
+    volumes:
+      - ./db/db_data:/var/lib/mysql
+    ports:
+      - 3306:3306
+
+  wp:
+    image: .
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+
+
+

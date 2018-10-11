@@ -1,0 +1,19 @@
+# Codeception Test Suite Configuration
+#
+# Suite for acceptance tests.
+# Perform tests in browser using the WebDriver or PhpBrowser.
+# If you need both WebDriver and PHPBrowser tests - create a separate suite.
+
+actor: AcceptanceTester
+modules:
+    enabled:
+        #- PhpBrowser:
+            #url: http://wp # use this URL when want to test in docker
+        #    url: http://localhost # use this URL when want to test local
+        - \Helper\Acceptance
+        - WebDriver:
+            browser: 'chrome'
+            url: 'http://wp'
+            window_size: '1400x900'
+            host: 'localhost'
+            port: '4444'
